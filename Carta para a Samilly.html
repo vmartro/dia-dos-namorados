@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Samilly · Nosso primeiro Dia dos Namorados</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f7f0e3;
+    --paper-soft:#f1e8d8;
+    --ink:#2c2521;
+    --ink-soft:#6a5f54;
+    --ink-faint:#9a8c7c;
+    --accent:#9d3b4e;
+    --gold:#b0894a;
+    --rule:#d9cbb2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'EB Garamond',serif;
+    color:var(--ink);
+    background:#ddd0ba;
+    background-image:
+      radial-gradient(120% 90% at 50% -10%, rgba(255,250,240,.5) 0, transparent 55%),
+      radial-gradient(130% 120% at 50% 120%, rgba(70,52,34,.22) 0, transparent 60%);
+    background-attachment:fixed;
+    padding:54px 20px 90px;
+    line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .sheet{
+    max-width:824px;margin:0 auto;position:relative;
+    background:var(--paper);
+    background-image:
+      radial-gradient(135% 80% at 50% 0%, rgba(255,252,245,.7) 0, transparent 45%),
+      repeating-linear-gradient(0deg, rgba(120,95,60,.012) 0 2px, transparent 2px 4px);
+    padding:78px clamp(28px,7vw,86px) 72px;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.6) inset,
+      0 2px 6px rgba(60,44,26,.12),
+      0 26px 60px rgba(50,36,20,.32);
+    border-radius:2px;
+  }
+  /* fine inner frame */
+  .sheet::before{
+    content:"";position:absolute;inset:18px;border:1px solid rgba(176,137,74,.32);pointer-events:none;border-radius:1px;
+  }
+
+  /* ---------- masthead ---------- */
+  .mast{text-align:center;position:relative;padding-bottom:6px;}
+  .overline{
+    font-family:'EB Garamond',serif;font-style:italic;color:var(--accent);
+    font-size:15px;letter-spacing:.06em;
+  }
+  .overline .sep{color:var(--gold);font-style:normal;margin:0 .5em;}
+  .ornament{display:flex;align-items:center;justify-content:center;gap:14px;margin:20px 0 14px;color:var(--gold);}
+  .ornament .line{height:1px;width:74px;background:linear-gradient(90deg,transparent,var(--gold));}
+  .ornament .line.r{background:linear-gradient(90deg,var(--gold),transparent);}
+  .diamond{width:6px;height:6px;background:var(--accent);transform:rotate(45deg);}
+  .salut{
+    font-family:'Pinyon Script',cursive;color:var(--ink);
+    font-size:clamp(54px,9vw,82px);line-height:.9;font-weight:400;
+  }
+  .intro{
+    font-family:'Cormorant Garamond',serif;font-size:clamp(19px,2.4vw,23px);
+    color:var(--ink-soft);max-width:520px;margin:22px auto 0;font-style:italic;line-height:1.5;
+  }
+
+  /* ---------- timeline ---------- */
+  .timeline{position:relative;margin:62px auto 0;max-width:640px;padding-left:62px;}
+  .timeline::before{
+    content:"";position:absolute;left:13px;top:8px;bottom:120px;width:2px;
+    background:linear-gradient(var(--rule),var(--rule) 70%,transparent);
+  }
+
+  .entry{position:relative;padding-bottom:54px;}
+  .entry::before{ /* node */
+    content:"";position:absolute;left:-55px;top:6px;width:14px;height:14px;border-radius:50%;
+    background:var(--paper);border:2.5px solid var(--accent);
+    box-shadow:0 0 0 5px var(--paper);
+  }
+  .entry .date{
+    display:block;font-style:normal;text-transform:uppercase;
+    font-size:12.5px;letter-spacing:.22em;color:var(--gold);font-weight:500;margin-bottom:3px;
+  }
+  .entry h2{
+    font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(25px,3.4vw,32px);
+    color:var(--ink);line-height:1.1;margin-bottom:12px;letter-spacing:.01em;
+  }
+  .entry p{font-size:clamp(17px,2vw,19.5px);color:#3c342d;margin-bottom:13px;text-wrap:pretty;}
+  .entry p:last-child{margin-bottom:0;}
+  .q{color:var(--accent);font-style:italic;}
+  em.soft{color:var(--accent);font-style:italic;}
+
+  /* ---------- flowing letter ---------- */
+  .letter{max-width:600px;margin:50px auto 0;}
+  .rv{position:relative;}
+  .letter p{
+    font-size:clamp(17px,2vw,19.5px);color:#3c342d;line-height:1.78;
+    margin-bottom:20px;text-wrap:pretty;
+  }
+  .letter p:last-child{margin-bottom:0;}
+  .letter .lead::first-letter{
+    font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--accent);
+    font-size:3.4em;float:left;line-height:.78;padding:6px 12px 0 0;
+  }
+  /* single centred emphasis line */
+  .emph{
+    font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--accent);
+    font-size:clamp(22px,3vw,29px);line-height:1.32;text-align:center;
+    margin:34px auto;max-width:520px;
+  }
+  /* litany / stanza of short lines */
+  .stanza{text-align:center;margin:34px auto;}
+  .stanza .l{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:clamp(19px,2.3vw,23px);color:var(--ink-soft);line-height:1.85;
+  }
+  .stanza .l.k{color:var(--ink);}
+  .rule-soft{display:flex;align-items:center;justify-content:center;gap:13px;margin:42px auto;color:var(--gold);}
+  .rule-soft .line{height:1px;width:54px;background:var(--gold);opacity:.45;}
+
+  /* the final, climactic entry */
+  .finale{padding-left:0;margin-top:8px;text-align:center;}
+  .finale::before{display:none;}
+  .timeline .finale-wrap{position:relative;}
+  .heart{
+    position:relative;width:20px;height:20px;margin:0 auto 26px;transform:rotate(-45deg);
+    background:var(--accent);
+  }
+  .heart::before,.heart::after{content:"";position:absolute;width:20px;height:20px;background:var(--accent);border-radius:50%;}
+  .heart::before{top:-10px;left:0;}
+  .heart::after{top:0;left:10px;}
+  .finale .date{color:var(--accent);}
+  .finale h2{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4.4vw,42px);font-weight:500;margin-bottom:18px;}
+  .finale p{font-size:clamp(18px,2.2vw,21px);color:#372f29;max-width:540px;margin-left:auto;margin-right:auto;}
+  .finale .big{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(24px,3.4vw,33px);
+    color:var(--accent);line-height:1.35;margin:24px auto 6px;
+  }
+  .sign{
+    font-family:'Pinyon Script',cursive;font-size:clamp(46px,7vw,66px);color:var(--ink);
+    margin-top:30px;line-height:1;
+  }
+  .sign-sub{font-style:italic;color:var(--ink-faint);font-size:15px;letter-spacing:.04em;margin-top:6px;}
+
+  /* close ornament */
+  .endmark{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:40px;color:var(--gold);}
+  .endmark .line{height:1px;width:60px;background:var(--gold);opacity:.5;}
+
+  /* ---------- tone control ---------- */
+  .tone{
+    position:fixed;right:18px;bottom:18px;display:flex;align-items:center;gap:9px;
+    background:rgba(247,240,227,.85);backdrop-filter:blur(6px);
+    border:1px solid rgba(176,137,74,.4);border-radius:30px;padding:8px 13px;
+    box-shadow:0 6px 18px rgba(50,36,20,.18);z-index:20;opacity:.5;transition:opacity .3s;
+  }
+  .tone:hover{opacity:1;}
+  .tone span{font-style:italic;font-size:13px;color:var(--ink-soft);}
+  .tone button{width:18px;height:18px;border-radius:50%;border:1.5px solid #fff;cursor:pointer;
+    box-shadow:0 0 0 1px rgba(0,0,0,.18);padding:0;transition:transform .15s;}
+  .tone button:hover{transform:scale(1.18);}
+  .tone button.on{box-shadow:0 0 0 2px var(--ink);}
+
+  /* ---------- photographs ---------- */
+  .photo{margin:34px auto;display:flex;justify-content:center;}
+  .photo-card{
+    background:#fffdf9;padding:12px 12px 0;border-radius:2px;
+    transform:rotate(var(--rot,0deg));
+    box-shadow:0 1px 0 rgba(0,0,0,.04) inset, 8px 12px 26px rgba(50,36,20,.24), 0 2px 5px rgba(50,36,20,.14);
+    position:relative;
+  }
+  .photo-card::before{ /* tape */
+    content:"";position:absolute;top:-12px;left:50%;transform:translateX(-50%) rotate(var(--tape,-3deg));
+    width:84px;height:26px;background:rgba(177,137,74,.16);border:1px dashed rgba(177,137,74,.5);
+  }
+  .photo-card img{display:block;width:280px;height:330px;object-fit:cover;background:#e7ddcb;border-radius:1px;}
+  .photo-card .cap{
+    font-family:'Cormorant Garamond',serif;font-style:italic;text-align:center;
+    color:var(--ink-soft);font-size:19px;line-height:1.3;padding:11px 6px 14px;
+  }
+
+  /* closing mural */
+  .mural-title{font-family:'Cormorant Garamond',serif;font-style:italic;text-align:center;
+    color:var(--accent);font-size:clamp(22px,3vw,28px);margin:48px auto 6px;}
+  .mural{display:grid;grid-template-columns:repeat(3,1fr);gap:26px 18px;margin:30px auto 8px;max-width:560px;}
+  .mural .photo{margin:0;}
+  .mural .photo-card{padding:9px 9px 0;}
+  .mural .photo-card::before{width:54px;height:18px;top:-9px;}
+  .mural .photo-card img{width:100%;height:150px;}
+  .mural .photo-card .cap{font-size:14.5px;padding:7px 3px 9px;}
+  @media(max-width:560px){
+    .mural{grid-template-columns:repeat(2,1fr);max-width:360px;}
+    .photo-card img{width:74vw;max-width:300px;}
+  }
+
+  /* ---------- entrance animation ----------
+     Base state is VISIBLE. JS adds .anim to hide-then-reveal as a
+     graceful opening; a force-show safety guarantees the letter is
+     never left blank if the animation engine is paused/unsupported. */
+  @media (prefers-reduced-motion:no-preference){
+    .anim .rv,.anim .mast > *{
+      opacity:0;transform:translateY(20px);
+      transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);
+      transition-delay:calc(var(--i,0) * .07s);
+    }
+    .anim .rv.in,.anim .mast.in > *{opacity:1;transform:none;}
+  }
+  .force-show .rv,.force-show .mast > *{opacity:1 !important;transform:none !important;transition:none !important;}
+
+  @media print{
+    body{background:#fff;padding:0;}
+    .sheet{box-shadow:none;max-width:none;}
+    .tone{display:none;}
+    .rv,.mast>*{opacity:1 !important;transform:none !important;}
+  }
+</style>
+</head>
+<body>
+  <article class="sheet">
+
+    <header class="mast">
+      <div class="overline">Para Samilly <span class="sep">·</span> no nosso primeiro Dia dos Namorados</div>
+      <div class="ornament"><span class="line"></span><span class="diamond"></span><span class="line r"></span></div>
+      <div class="salut">Meu amor,</div>
+      <p class="intro">hoje é o nosso primeiro Dia dos Namorados juntos — e eu quis te escrever tudo o que sinto.</p>
+    </header>
+
+    <div class="letter">
+
+      <p class="rv lead">Hoje é o nosso primeiro Dia dos Namorados juntos. E, enquanto penso em tudo o que vivemos até aqui, percebo que a melhor parte da nossa história não são os grandes momentos. São os detalhes.</p>
+
+      <p class="rv">São as conversas que começaram despretensiosas e, sem que eu percebesse, passaram a fazer parte dos meus dias. São as mensagens de bom dia, os “já orou?”, os “dorme com Deus”, os beijos cobrados antes de dormir e as pequenas broncas quando eu demorava para responder.</p>
+
+      <p class="emph rv">Eu me apaixonei por você nos detalhes.</p>
+
+      <figure class="photo rv">
+        <div class="photo-card" style="--rot:-2.2deg;--tape:-4deg">
+          <img src="fotos/04.jpeg" alt="Samilly com as rosas">
+          <figcaption class="cap">No aniversário da minha sogra haha</figcaption>
+        </div>
+      </figure>
+
+      <p class="rv">Me apaixonei pela professora que fala dos seus alunos com brilho nos olhos. Pela mulher que se preocupa com as pessoas, que sofre quando alguém está passando por dor, que se apega às crianças, aos animais, às histórias e às pessoas que Deus coloca em seu caminho.</p>
+
+      <p class="rv">Pela forma como você se emociona. Pela forma como sente saudade. Pela forma como se importa. E talvez seja exatamente isso que mais admiro em você: <strong>o tamanho do seu coração.</strong></p>
+
+      <p class="rv">Ao longo desses meses, fui conhecendo cada pedacinho de quem você é. Descobri a mulher que ama sua família, que fala dos pais com orgulho, que construiu valores lindos e que carrega uma fé que inspira quem está ao seu lado.</p>
+
+      <figure class="photo rv">
+        <div class="photo-card" style="--rot:2deg;--tape:3deg">
+          <img src="fotos/01.jpeg" alt="Samilly no culto">
+          <figcaption class="cap">a fé que me inspira</figcaption>
+        </div>
+      </figure>
+
+      <p class="rv">Descobri também a mulher que diz não gostar de surpresas, mas que fica curiosa até não aguentar mais. A mulher que reclama quando eu sou seco. Que me chama de <em class="soft">“amor”</em>, <em class="soft">“neném”</em>, <em class="soft">“mozinho”</em> e, de vez em quando, de <em class="soft">“momô”</em>.</p>
+
+      <p class="rv">E, sinceramente? Eu não trocaria isso por nada.</p>
+
+      <div class="stanza rv">
+        <div class="l">Você trouxe leveza para a minha vida.</div>
+        <div class="l">Trouxe risadas para dias difíceis.</div>
+        <div class="l">Trouxe companhia.</div>
+        <div class="l">Trouxe paz.</div>
+      </div>
+
+      <p class="rv">E, sem perceber, foi ocupando um espaço que hoje não consigo imaginar vazio.</p>
+
+      <div class="rule-soft rv"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+
+      <p class="rv">Gosto de pensar em todas as conversas que tivemos sobre o futuro.</p>
+
+      <div class="stanza rv">
+        <div class="l">Sobre alianças.</div>
+        <div class="l">Sobre filhos.</div>
+        <div class="l">Sobre você me apresentando para sua família.</div>
+        <div class="l">Sobre eu cuidando de você quando a cabeça dói.</div>
+        <div class="l">Sobre você me cobrando porque eu não mandei foto do rosto.</div>
+        <div class="l">Sobre os chocolates que você gosta.</div>
+        <div class="l">Sobre os cafés, os treinos, os sonhos e até sobre o Brasil finalmente ganhar o hexa.</div>
+      </div>
+
+      <p class="rv">No fundo, todas essas conversas tinham algo em comum: elas já falavam de <em class="soft">“nós”</em>. E eu amo isso. Amo porque, mesmo quando tudo ainda era incerto, já existia uma sensação muito forte dentro de mim de que você era alguém diferente.</p>
+
+      <figure class="photo rv">
+        <div class="photo-card" style="--rot:-1.6deg;--tape:-2deg">
+          <img src="fotos/10.jpeg" alt="Samilly com a nossa caneca">
+          <figcaption class="cap">Tomando chá, em um domingo qualquer</figcaption>
+        </div>
+      </figure>
+
+      <div class="stanza rv">
+        <div class="l">Alguém que valia a pena conhecer sem pressa.</div>
+        <div class="l">Alguém que valia a pena esperar.</div>
+        <div class="l">Alguém que eu queria ter por perto.</div>
+      </div>
+
+      <p class="rv">Você me ensinou que algumas pessoas chegam na nossa vida de uma forma tão natural que parece que sempre estiveram ali. Como se Deus, lá atrás, já estivesse preparando os nossos caminhos para que eles se cruzassem no momento certo.</p>
+
+      <p class="l">E quando olho para você hoje, é exatamente isso que sinto: gratidão.</p>
+
+      <figure class="photo rv">
+        <div class="photo-card" style="--rot:1.8deg;--tape:4deg">
+          <img src="fotos/07.jpeg" alt="Samilly">
+          <figcaption class="cap">esse biquinho que eu amo</figcaption>
+        </div>
+      </figure>
+
+      <div class="stanza rv">
+        <div class="l">Gratidão por cada conversa.</div>
+        <div class="l">Por cada risada.</div>
+        <div class="l">Por cada cuidado.</div>
+        <div class="l">Por cada oração.</div>
+        <div class="l"><strong>Por cada 'eu te amo'</strong></div>
+      </div>
+
+      <p class="rv">Neste nosso primeiro Dia dos Namorados, quero que você saiba que é muito especial para mim. Mais do que talvez consiga colocar em palavras.</p>
+
+      <p class="rv">Quero continuar conhecendo seus sonhos, ouvindo suas histórias, celebrando suas conquistas, segurando sua mão nos dias difíceis e construindo memórias ao seu lado. Quero continuar sendo alguém que te faz sentir amada, segura e valorizada.</p>
+
+      <p class="emph rv">Porque, entre todas as coisas bonitas que aconteceram na minha vida este ano, você foi a mais bonita delas.</p>
+
+      <div class="mural-title rv">um mural de você</div>
+      <div class="mural rv">
+        <figure class="photo"><div class="photo-card" style="--rot:-3deg;--tape:-5deg"><img src="fotos/05.jpeg" alt=""><figcaption class="cap">minha professora</figcaption></div></figure>
+        <figure class="photo"><div class="photo-card" style="--rot:2.5deg;--tape:4deg"><img src="fotos/08.jpeg" alt=""><figcaption class="cap">as florzinhas</figcaption></div></figure>
+        <figure class="photo"><div class="photo-card" style="--rot:-1.5deg;--tape:2deg"><img src="fotos/06.jpeg" alt=""><figcaption class="cap">fazendo hidratação</figcaption></div></figure>
+        <figure class="photo"><div class="photo-card" style="--rot:2.2deg;--tape:-3deg"><img src="fotos/11.jpeg" alt=""><figcaption class="cap">no culto</figcaption></div></figure>
+        <figure class="photo"><div class="photo-card" style="--rot:-2.4deg;--tape:3deg"><img src="fotos/09.jpeg" alt=""><figcaption class="cap">foto com vestido</figcaption></div></figure>
+        <figure class="photo"><div class="photo-card" style="--rot:1.6deg;--tape:-4deg"><img src="fotos/03.jpeg" alt=""><figcaption class="cap">ranhenta</figcaption></div></figure>
+        <figure class="photo"><div class="photo-card" style="--rot:-2deg;--tape:2deg"><img src="fotos/12.jpeg" alt=""><figcaption class="cap">boa noite</figcaption></div></figure>
+        <figure class="photo"><div class="photo-card" style="--rot:2.8deg;--tape:-2deg"><img src="fotos/02.jpeg" alt=""><figcaption class="cap">só você</figcaption></div></figure>
+      </div>
+
+      <div class="finale rv">
+        <br>
+        <h2>Feliz Dia dos Namorados, meu amor.</h2>
+        <p class="big">Que este seja apenas o primeiro de muitos.</p>
+        <div class="sign-sub" style="margin-top:26px;font-size:17px;">Com todo o meu amor,</div>
+        <div class="sign" style="margin-top:8px;">Vicente.</div>
+      </div>
+
+      <div class="endmark"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+
+    </div>
+  </article>
+
+  <div class="tone" role="group" aria-label="Tom de cor">
+    <span>tom</span>
+    <button class="on" data-a="#9d3b4e" data-g="#b0894a" style="background:#9d3b4e" title="Rosa antigo" aria-label="Rosa antigo"></button>
+    <button data-a="#7a2e3c" data-g="#9c7b46" style="background:#7a2e3c" title="Vinho" aria-label="Vinho"></button>
+    <button data-a="#824257" data-g="#a98a52" style="background:#824257" title="Ameixa" aria-label="Ameixa"></button>
+  </div>
+
+  <script>
+    // tone switcher
+    document.querySelectorAll('.tone button').forEach(function(b){
+      b.addEventListener('click',function(){
+        document.querySelectorAll('.tone button').forEach(function(x){x.classList.remove('on');});
+        b.classList.add('on');
+        document.documentElement.style.setProperty('--accent', b.dataset.a);
+        document.documentElement.style.setProperty('--gold', b.dataset.g);
+      });
+    });
+
+    // entrance: graceful staggered "opening" of the whole letter.
+    // Base markup is visible; we hide via .anim then reveal, with a
+    // force-show safety so the letter never stays blank anywhere.
+    var root = document.documentElement;
+    var mast = document.querySelector('.mast');
+    var blocks = Array.prototype.slice.call(document.querySelectorAll('.rv'));
+    var idx = 0;
+    Array.prototype.forEach.call(mast.children, function(c){ c.style.setProperty('--i', idx++); });
+    blocks.forEach(function(e){ e.style.setProperty('--i', idx++); });
+
+    root.classList.add('anim');
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        mast.classList.add('in');
+        blocks.forEach(function(e){ e.classList.add('in'); });
+      });
+    });
+    // safety net: guarantee full visibility even if animations are paused
+    setTimeout(function(){ root.classList.add('force-show'); }, 2600);
+  </script>
+
+  <template id="__bundler_thumbnail">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" fill="#9d3b4e"/>
+      <g transform="translate(50,52) rotate(-45)">
+        <rect x="-11" y="-11" width="22" height="22" fill="#f7f0e3"/>
+        <circle cx="-11" cy="0" r="11" fill="#f7f0e3"/>
+        <circle cx="0" cy="-11" r="11" fill="#f7f0e3"/>
+      </g>
+    </svg>
+  </template>
+</body>
+</html>
